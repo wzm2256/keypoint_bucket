@@ -6,7 +6,7 @@ import process_all
 import requests
 from waitress import serve
 
-out_address = 'http://127.0.0.1:5000'
+out_address = 'http://localhost:8000'
 in_port = 8000
 
 
@@ -17,9 +17,10 @@ def index():
       f = request.files['file'] 
       f.save('Receive/a.png')
       print('Received an image...')
-      angle, c_x, c_y = process_all.process()
+      angle, c_x, c_y, b, result = process_all.process()
       print('Sending results... ')
-      r = requests.post(out_address, json={'angle':angle, 'c_x': c_x, 'c_y': c_y})
+      # r = requests.post(out_address, json={'angle':angle, 'X': c_x, 'Y': c_y})
+      r = requests.post(out_address, json={'R':b, 'X': c_x, 'Y': c_y})
       return 'OK'
    else:
       return 'Use POST requests'
