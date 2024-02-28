@@ -1,18 +1,40 @@
 import os
 import numpy as np
 import pdb
+import detect
+import find_circle
 
 def process(file='Receive/a.png'):
     try:
         file_name = os.path.basename(file).split('.')[0]
         # predict bound
-        os.system(f'python detect.py --data {file}')
+        agsps1 = argparse.ArgumentParser()
+        agsps1.add_argument('--size', type=int, default=227)
+        agsps1.add_argument('--model_weight', type=str, default='best.pt')
+        agsps1.add_argument('--data', type=str, default='')
+        agsps1.add_argument('--save_path', type=str, default='Result')
+        args1 = agsps1.parse_args()
+
+        detect.main(args1)
+
+        # os.system(f'python detect.py --data {file}')
+
+
         # get  bound
         with open(f'Result/labels/keypoint_{file_name}.txt', 'r') as f:
             bound = f.readline()
 
         # predict circle
-        os.system(f'python find_circle.py {file} --save_folder Result')
+        agsps2 = argparse.ArgumentParser()
+        agsps2.add_argument('filename', type=str)
+        agsps2.add_argument('--minr', type=int, default=135)
+        agsps2.add_argument('--maxr', type=int, default=150)
+        agsps2.add_argument('--save_folder', type=str, default='')
+        args2 = agsps2.parse_args()
+        find_circle.hough_circle(args2.filename, args2.minr, args2.maxr, args2.save_folder)
+        # os.system(f'python find_circle.py {file} --save_folder Result')
+
+
         # get circle
         with open(f'Result/labels/circle_{file_name}.txt', 'r') as f:
             circle = f.readline()
