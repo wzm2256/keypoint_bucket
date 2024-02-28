@@ -3,6 +3,7 @@ import numpy as np
 import pdb
 import detect
 import find_circle
+import argparse
 
 def process(file='Receive/a.png'):
     try:
@@ -59,7 +60,7 @@ def process(file='Receive/a.png'):
 
 
 if __name__ == '__main__':
-    import argparse
+    
     agsps = argparse.ArgumentParser()
     agsps.add_argument('--path', type=str, default='Receive/a.png')
 
