@@ -20,7 +20,7 @@ def index():
       angle, c_x, c_y, b, result = process_all.process()
       print('Sending results... ')
       # r = requests.post(out_address, json={'angle':angle, 'X': c_x, 'Y': c_y})
-      r = requests.post(out_address, json={'R':b, 'X': c_x, 'Y': c_y})
+      r = requests.post(out_address, json={'result': result, 'R':b, 'X': c_x, 'Y': c_y})
       return 'OK'
    else:
       return 'Use POST requests'
