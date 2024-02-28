@@ -15,7 +15,7 @@ def process(file='Receive/a.png'):
         agsps1.add_argument('--data', type=str, default='')
         agsps1.add_argument('--save_path', type=str, default='Result')
         args1 = agsps1.parse_args()
-
+        args1.data = file
         detect.main(args1)
 
         # os.system(f'python detect.py --data {file}')
@@ -27,12 +27,12 @@ def process(file='Receive/a.png'):
 
         # predict circle
         agsps2 = argparse.ArgumentParser()
-        agsps2.add_argument('filename', type=str)
+        # agsps2.add_argument('--filename', type=str)
         agsps2.add_argument('--minr', type=int, default=135)
         agsps2.add_argument('--maxr', type=int, default=150)
         agsps2.add_argument('--save_folder', type=str, default='')
         args2 = agsps2.parse_args()
-        find_circle.hough_circle(args2.filename, args2.minr, args2.maxr, args2.save_folder)
+        find_circle.hough_circle(file, args2.minr, args2.maxr, 'Result')
         # os.system(f'python find_circle.py {file} --save_folder Result')
 
 
