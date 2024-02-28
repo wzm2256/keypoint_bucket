@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pdb
 
-def process(file='Receive/a.jpg'):
+def process(file='Receive/a.png'):
     try:
         file_name = os.path.basename(file).split('.')[0]
         # predict bound
