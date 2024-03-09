@@ -53,8 +53,9 @@ def process(file='Receive/a.png'):
         with open(f'Result/labels/angle_{file_name}.txt', 'w') as f:
             f.write(f'{angle}\n')
 
-        return angle, c_x, c_y, b, True
-
+        angle_new = (angle - 167) / 180 * np.pi
+        angle_new_sign = np.arctan2(np.sin(angle_new), np.cos(angle_new)) * np.pi / np.pi * 180
+        return angle_new_sign, c_x, c_y, b, True
     except:
         return 0., 0., 0., 0, False
 
