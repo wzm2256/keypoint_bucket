@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
     agsps = argparse.ArgumentParser()
     agsps.add_argument('--size', type=int, default=227)
-    agsps.add_argument('--data_root', type=str, default=r'/home/wzm/MyCode/yolo/YOLODataset/')
+    agsps.add_argument('--data_root', type=str, default=r'raw_image/YOLODataset')
     agsps.add_argument('--train_bs', type=int, default=4)
     agsps.add_argument('--lr_D', type=float, default=1e-4)
     agsps.add_argument('--lambdav', type=float, default=0.1)
