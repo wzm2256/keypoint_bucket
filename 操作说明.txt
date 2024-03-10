@@ -1,2 +1,14 @@
 训练流程：
-执行  a.bat 即可
+
+1. 将所有的标注好的图像放在 raw_image 文件夹下
+每个bmp文件对应一个json文件
+
+例如：
+raw_image/1_2.bmp
+raw_image/1_2.json
+raw_image/1_3.bmp
+raw_image/1_3.json
+
+
+
+2. 执行  a.bat 即可
