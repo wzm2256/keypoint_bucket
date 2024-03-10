@@ -1,4 +1,4 @@
-conda activate torch22
+:: conda activate torch22
 
 :: 0. Convert to yolo dataset
 python labelme2yolo.py --json_dir raw_image

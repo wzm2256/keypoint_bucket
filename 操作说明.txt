@@ -1,3 +1,2 @@
-1. python server.py 搭建waitress服务器
-
-参数： 传出地址和传入端口在server.py第9-10行更改
+训练流程：
+执行  a.bat 即可
