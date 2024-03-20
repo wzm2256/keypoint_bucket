@@ -17,7 +17,7 @@ class My_dataset(Dataset):
         if train:
             self.trans = v2.Compose([
                 v2.Resize(size=(size, size)),
-                v2.RandomPhotometricDistort(p=0.5),
+                v2.RandomPhotometricDistort(p=0.9),
                 # v2.RandomRotation(10),
                 v2.ToDtype(torch.float32, scale=True),
                 v2.Normalize(mean=[0.5, 0.5, 0.5], std=[1.0, 1.0, 1.0]),
