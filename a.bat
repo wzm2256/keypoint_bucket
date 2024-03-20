@@ -12,7 +12,8 @@ python test.py
 
 
 :: 2. detect key point
-::python detect.py --data "/home/wzm/MyCode/yolo/YOLODataset/images/train/"
+python detect.py --data "raw_image\YOLODataset\images\train"
+python detect.py --data "raw_image\YOLODataset\images\val"
 
 ::Result will be saved to Result/a.png and Result/labels/a.txt
 
